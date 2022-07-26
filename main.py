@@ -14,8 +14,8 @@ def sql_class():
         print(asdf.read_dataset())
         print(asdf.left_join_operation())
         print(asdf.unique_dress_ID_operation())
-        print(asdf.total_sell_individual_dress_id())
         print(asdf.recommendation_zero_count_operation())
+        print(asdf.total_sell_individual_dress_id())
         print(asdf.third_most_selling_dress())
 
     except Exception as e:

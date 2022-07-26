@@ -36,8 +36,8 @@ class mongo_DB(sql_Database):
                 data1 = json.load(f1)
             lp.info("Json data and data1 loaded successfully")
         except Exception as e:
-            print("attribute.json and sales.json File not found error" + str(e))
-            lp.error("attribute.json and sales.json File not found error" + str(e))
+            print("attribute.json and sales.json files not found \n" + str(e))
+            lp.error("attribute.json and sales.json files not found \n" + str(e))
         try:
             client = pymongo.MongoClient("mongodb+srv://root:redhat@cluster0.dpqh6.mongodb.net/?retryWrites=true&w=majority")
             db = client.test
@@ -46,12 +46,12 @@ class mongo_DB(sql_Database):
             attribute.insert_many([data])
             sales = db1['sales']
             sales.insert_many([data1])
-            for i in attribute.find():
-                print(i)
-                lp.info("Attribute data inserted into MongoDB is \n" + str(i))
-            for i in sales.find():
-                print(i)
-                lp.info("sales data inserted into MongoDB is \n" + str(i))
+            result = pd.DataFrame(attribute.find_one())
+            print("Attribute data inserted into MongoDB is \n", result)
+            lp.info("Attribute data inserted into MongoDB is \n" + str(result))
+            result1 =pd.DataFrame(sales.find_one())
+            print("sales data inserted into MongoDB is \n", result1)
+            lp.info("sales data inserted into MongoDB is \n" + str(result1))
             print("Bulk Data inserted successfully in MongoDB")
             lp.info("Bulk Data inserted successfully in MongoDB")
         except Exception as e:

@@ -204,8 +204,8 @@ class sql_Database:
             cursor.execute("use dataset")
             query = "select attribute.Dress_ID, attribute.Style, attribute.Price, Rating, sales.Dress_ID,sales.`29/8/2013`, sales.`31/8/2013` from attribute left join sales on attribute.Dress_ID = sales.Dress_ID"
             cursor.execute(query)
-            result = cursor.fetchall()
-            print(result)
+            result = pd.DataFrame(cursor.fetchall())
+            print("Left join operation output is : \n", result)
             lp.info("Left join operation output is : \n" + str(result))
             print("Left Join operation completed successfully")
             lp.info("Left Join operation completed successfully")
@@ -225,8 +225,8 @@ class sql_Database:
             cursor = mydb.cursor()
             query = "select distinct Dress_ID from dataset.attribute"
             cursor.execute(query)
-            result = cursor.fetchall()
-            print(result)
+            result = pd.DataFrame(cursor.fetchall())
+            print("The unique dress id from attribute dataset is : \n", result)
             lp.info("The unique dress id from attribute dataset is : \n" + str(result))
 
             query1 = "select  count(DISTINCT Dress_ID) from dataset.attribute"
@@ -268,13 +268,12 @@ class sql_Database:
         try:
             mydb = connection.connect(host=self.host, user=self.username, passwd=self.password)
             cursor = mydb.cursor()
-            query = "select Dress_ID , count(*) from dataset.attribute group by Dress_ID"
+            a = "`29/8/2013`+`31/8/2013`+`09-02-2013`+`09-04-2013`+`09-06-2013`+`09-08-2013`+`09-10-2013`+`09-12-2013`+`14/9/2013`+`16/9/2013`+`18/9/2013`+`20/9/2013`+`22/9/2013`+`24/9/2013`+`26/9/2013`+`28/9/2013`+`30/9/2013`+`10-02-2013`+`10-04-2013`+`10-06-2013`+`10-08-2010`+`10-10-2013`+`10-12-2013`"
+            query = "select Dress_ID, sum({}) from dataset.sales group by Dress_ID".format(a, a)
             cursor.execute(query)
-            result = cursor.fetchall()
-            print(result)
-            lp.info("Total count of dress for individual dress id is: \n" + str(result))
-            print("Total dress sold for individual dress id is found")
-            lp.info("Total dress sold for individual dress id is found")
+            result = pd.DataFrame(cursor.fetchall())
+            print("Total cost of dresses sold for individual dress id is: \n", result)
+            lp.info("Total cost of dresses sold for individual dress id is: \n" + str(result))
 
         except Exception as e:
             return "(total_sell_individual_dress_id): Failed to find the total sell for the individual dress id \n" + str(e)
@@ -289,7 +288,8 @@ class sql_Database:
         try:
             mydb = connection.connect(host=self.host, user=self.username, passwd=self.password)
             cursor = mydb.cursor()
-            query = "select Dress_ID , count(*) from dataset.sales group by Dress_ID order by count(*) DESC LIMIT 3, 1"
+            a = "`29/8/2013`+`31/8/2013`+`09-02-2013`+`09-04-2013`+`09-06-2013`+`09-08-2013`+`09-10-2013`+`09-12-2013`+`14/9/2013`+`16/9/2013`+`18/9/2013`+`20/9/2013`+`22/9/2013`+`24/9/2013`+`26/9/2013`+`28/9/2013`+`30/9/2013`+`10-02-2013`+`10-04-2013`+`10-06-2013`+`10-08-2010`+`10-10-2013`+`10-12-2013`"
+            query = "select Dress_ID, sum({}) from dataset.sales group by Dress_ID order by sum({}) DESC LIMIT 2, 1".format(a, a)
             cursor.execute(query)
             result = cursor.fetchall()
             print("The third most selling dress is: ", result)
