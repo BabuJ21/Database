@@ -39,7 +39,7 @@ class mongo_DB(sql_Database):
             print("attribute.json and sales.json files not found \n" + str(e))
             lp.error("attribute.json and sales.json files not found \n" + str(e))
         try:
-            client = pymongo.MongoClient("mongodb+srv://root:redhat@cluster0.dpqh6.mongodb.net/?retryWrites=true&w=majority")
+            client = pymongo.MongoClient("<use your url>")
             db = client.test
             db1 = client['dataset']
             attribute = db1['attribute']
