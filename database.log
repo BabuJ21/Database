@@ -1,0 +1,290 @@
+INFO 2022-07-26 22:30:18,758 Logging is enabled
+INFO 2022-07-26 22:30:19,758 Main function invoked and started to execute the database classes
+INFO 2022-07-26 22:30:19,758 MySQL_class function invoked
+INFO 2022-07-26 22:30:19,758 Sql_database class invoked
+INFO 2022-07-26 22:30:19,758 The MySQL DB connection parameters initialized
+INFO 2022-07-26 22:30:19,758 Drop database function from class invoked
+INFO 2022-07-26 22:30:20,360 Database dropped successfully
+INFO 2022-07-26 22:30:20,361 Database creation function from class invoked
+INFO 2022-07-26 22:30:20,454 Database created successfully  [('babu12',), ('babu1234',), ('dataset',), ('information_schema',), ('mysql',), ('performance_schema',), ('sakila',), ('sys',), ('world',)]
+INFO 2022-07-26 22:30:20,455 Table creation function from class invoked
+INFO 2022-07-26 22:30:21,623 Tables created successfully[('attribute',), ('sales',)]
+INFO 2022-07-26 22:30:21,624 Attribute bulk insert function from class invoked
+INFO 2022-07-26 22:30:22,686 All attribute data inserted
+INFO 2022-07-26 22:30:22,686 Dress Sales bulk insert function from class invoked
+INFO 2022-07-26 22:30:23,571 ALl sales data inserted
+INFO 2022-07-26 22:30:23,571 Read dataset function from class invoked
+INFO 2022-07-26 22:30:23,637 Attribute dataset is: 
+       Dress_ID    Style    Price  ...  Decoration PatternType Recommendation
+0    1006032852     Sexy      Low  ...     ruffles      animal              1
+1    1212192089   Casual      Low  ...     ruffles      animal              0
+2    1190380701  vintage     High  ...        NULL       print              0
+3     966005983    Brief  Average  ...  embroidary       print              1
+4     876339541     cute      Low  ...         bow         dot              0
+..          ...      ...      ...  ...         ...         ...            ...
+495   713391965   Casual      Low  ...        NULL       solid              1
+496   722565148     Sexy      Low  ...        NULL        NULL              0
+497   532874347   Casual  Average  ...        lace       solid              1
+498   655464934   Casual  Average  ...    applique       print              1
+499   919930954   Casual      Low  ...        lace       solid              0
+
+[500 rows x 14 columns]
+INFO 2022-07-26 22:30:23,693 sales dataset is: 
+       Dress_ID  29/8/2013  31/8/2013  ...  10-08-2010  10-10-2013  10-12-2013
+0    1006032852       2114       2274  ...        3923        3985        4048
+1    1212192089        151        275  ...        4024        4125        4277
+2    1190380701          6          7  ...          11          11          11
+3     966005983       1005       1128  ...        1955        1959        1963
+4     876339541        996       1175  ...        2614        2693        2736
+..          ...        ...        ...  ...         ...         ...         ...
+495   713391965          0          0  ...         382         384         285
+496   722565148          0          0  ...         913         919         931
+497   532874347          0          0  ...         546         535         520
+498   655464934          0          0  ...         249         249         248
+499   919930954          0          0  ...         668         674         680
+
+[500 rows x 24 columns]
+INFO 2022-07-26 22:30:23,693 Attribute and sales Dataset read completed successfully
+INFO 2022-07-26 22:30:23,694 left join operation function from class is invoked
+INFO 2022-07-26 22:30:23,724 Left join operation output is : 
+              0        1        2    3           4     5     6
+0    1006032852     Sexy      Low  4.6  1006032852  2114  2274
+1    1212192089   Casual      Low  0.0  1212192089   151   275
+2    1190380701  vintage     High  0.0  1190380701     6     7
+3     966005983    Brief  Average  4.6   966005983  1005  1128
+4     876339541     cute      Low  4.5   876339541   996  1175
+..          ...      ...      ...  ...         ...   ...   ...
+545   722565148     Sexy      Low  4.3   722565148     0     0
+546   722565148     Sexy      Low  4.3   722565148   856   882
+547   532874347   Casual  Average  4.7   532874347     0     0
+548   655464934   Casual  Average  4.6   655464934     0     0
+549   919930954   Casual      Low  4.4   919930954     0     0
+
+[550 rows x 7 columns]
+INFO 2022-07-26 22:30:23,724 Left Join operation completed successfully
+INFO 2022-07-26 22:30:23,724 unique dress Id operation function from class invoked
+INFO 2022-07-26 22:30:23,739 The unique dress id from attribute dataset is : 
+              0
+0    1006032852
+1    1212192089
+2    1190380701
+3     966005983
+4     876339541
+..          ...
+470   990559192
+471   713391965
+472   532874347
+473   655464934
+474   919930954
+
+[475 rows x 1 columns]
+INFO 2022-07-26 22:30:23,740 Count of Unique Dresses found is [(475,)]
+INFO 2022-07-26 22:30:23,740 Function completed
+INFO 2022-07-26 22:30:23,740 recommendation zero count operation function from class invoked
+INFO 2022-07-26 22:30:23,746 Count of attribute dataset where recommendation is 0 is [(290,)]
+INFO 2022-07-26 22:30:23,747 Total sell individual dress id function from class invoked
+INFO 2022-07-26 22:30:23,766 Total cost of dresses sold for individual dress id is: 
+              0      1
+0    1006032852  75979
+1    1212192089  52256
+2    1190380701    223
+3     966005983  39691
+4     876339541  44077
+..          ...    ...
+470   990559192   1427
+471   713391965   8915
+472   532874347  12606
+473   655464934   5167
+474   919930954  12312
+
+[475 rows x 2 columns]
+INFO 2022-07-26 22:30:23,766 Third most selling dress function from class invoked
+INFO 2022-07-26 22:30:23,773 The third most selling dress is: [(1006032852, Decimal('75979'))]
+INFO 2022-07-26 22:30:23,774 MongoDB class function invoked
+INFO 2022-07-26 22:30:23,774 Sql_database class invoked
+INFO 2022-07-26 22:30:23,774 The MySQL DB connection parameters initialized
+INFO 2022-07-26 22:30:23,774 json convertion function from class invoked
+INFO 2022-07-26 22:30:23,800 Datasets are converted to json format
+INFO 2022-07-26 22:30:23,801 Drop database collection function from class invoked
+INFO 2022-07-26 22:30:24,823 Database collections dropped successfully
+INFO 2022-07-26 22:30:24,896 Bulk insert function from class invoked
+INFO 2022-07-26 22:30:24,943 Json data and data1 loaded successfully
+INFO 2022-07-26 22:30:27,016 Attribute data inserted into MongoDB is 
+                          _id    Dress_ID  ... PatternType Recommendation
+0    62e01da90093e5c1f0266ad9  1006032852  ...      animal              1
+1    62e01da90093e5c1f0266ad9  1212192089  ...      animal              0
+2    62e01da90093e5c1f0266ad9  1190380701  ...       print              0
+3    62e01da90093e5c1f0266ad9   966005983  ...       print              1
+4    62e01da90093e5c1f0266ad9   876339541  ...         dot              0
+..                        ...         ...  ...         ...            ...
+495  62e01da90093e5c1f0266ad9   713391965  ...       solid              1
+496  62e01da90093e5c1f0266ad9   722565148  ...        NULL              0
+497  62e01da90093e5c1f0266ad9   532874347  ...       solid              1
+498  62e01da90093e5c1f0266ad9   655464934  ...       print              1
+499  62e01da90093e5c1f0266ad9   919930954  ...       solid              0
+
+[500 rows x 15 columns]
+INFO 2022-07-26 22:30:27,397 sales data inserted into MongoDB is 
+                          _id    Dress_ID  ...  10-10-2013  10-12-2013
+0    62e01daa0093e5c1f0266ada  1006032852  ...        3985        4048
+1    62e01daa0093e5c1f0266ada  1212192089  ...        4125        4277
+2    62e01daa0093e5c1f0266ada  1190380701  ...          11          11
+3    62e01daa0093e5c1f0266ada   966005983  ...        1959        1963
+4    62e01daa0093e5c1f0266ada   876339541  ...        2693        2736
+..                        ...         ...  ...         ...         ...
+495  62e01daa0093e5c1f0266ada   713391965  ...         384         285
+496  62e01daa0093e5c1f0266ada   722565148  ...         919         931
+497  62e01daa0093e5c1f0266ada   532874347  ...         535         520
+498  62e01daa0093e5c1f0266ada   655464934  ...         249         248
+499  62e01daa0093e5c1f0266ada   919930954  ...         674         680
+
+[500 rows x 25 columns]
+INFO 2022-07-26 22:30:27,397 Bulk Data inserted successfully in MongoDB
+INFO 2022-07-26 22:30:27,476 Main function executed successfully 
+ 
+
+INFO 2022-07-26 22:30:57,256 Logging is enabled
+INFO 2022-07-26 22:30:58,595 Main function invoked and started to execute the database classes
+INFO 2022-07-26 22:30:58,596 MySQL_class function invoked
+INFO 2022-07-26 22:30:58,596 Sql_database class invoked
+INFO 2022-07-26 22:30:58,596 The MySQL DB connection parameters initialized
+INFO 2022-07-26 22:30:58,596 Drop database function from class invoked
+INFO 2022-07-26 22:31:00,073 Database dropped successfully
+INFO 2022-07-26 22:31:00,074 Database creation function from class invoked
+INFO 2022-07-26 22:31:00,395 Database created successfully  [('babu12',), ('babu1234',), ('dataset',), ('information_schema',), ('mysql',), ('performance_schema',), ('sakila',), ('sys',), ('world',)]
+INFO 2022-07-26 22:31:00,396 Table creation function from class invoked
+INFO 2022-07-26 22:31:02,031 Tables created successfully[('attribute',), ('sales',)]
+INFO 2022-07-26 22:31:02,031 Attribute bulk insert function from class invoked
+INFO 2022-07-26 22:31:03,217 All attribute data inserted
+INFO 2022-07-26 22:31:03,218 Dress Sales bulk insert function from class invoked
+INFO 2022-07-26 22:31:04,089 ALl sales data inserted
+INFO 2022-07-26 22:31:04,089 Read dataset function from class invoked
+INFO 2022-07-26 22:31:04,147 Attribute dataset is: 
+       Dress_ID    Style    Price  ...  Decoration PatternType Recommendation
+0    1006032852     Sexy      Low  ...     ruffles      animal              1
+1    1212192089   Casual      Low  ...     ruffles      animal              0
+2    1190380701  vintage     High  ...        NULL       print              0
+3     966005983    Brief  Average  ...  embroidary       print              1
+4     876339541     cute      Low  ...         bow         dot              0
+..          ...      ...      ...  ...         ...         ...            ...
+495   713391965   Casual      Low  ...        NULL       solid              1
+496   722565148     Sexy      Low  ...        NULL        NULL              0
+497   532874347   Casual  Average  ...        lace       solid              1
+498   655464934   Casual  Average  ...    applique       print              1
+499   919930954   Casual      Low  ...        lace       solid              0
+
+[500 rows x 14 columns]
+INFO 2022-07-26 22:31:04,203 sales dataset is: 
+       Dress_ID  29/8/2013  31/8/2013  ...  10-08-2010  10-10-2013  10-12-2013
+0    1006032852       2114       2274  ...        3923        3985        4048
+1    1212192089        151        275  ...        4024        4125        4277
+2    1190380701          6          7  ...          11          11          11
+3     966005983       1005       1128  ...        1955        1959        1963
+4     876339541        996       1175  ...        2614        2693        2736
+..          ...        ...        ...  ...         ...         ...         ...
+495   713391965          0          0  ...         382         384         285
+496   722565148          0          0  ...         913         919         931
+497   532874347          0          0  ...         546         535         520
+498   655464934          0          0  ...         249         249         248
+499   919930954          0          0  ...         668         674         680
+
+[500 rows x 24 columns]
+INFO 2022-07-26 22:31:04,203 Attribute and sales Dataset read completed successfully
+INFO 2022-07-26 22:31:04,204 left join operation function from class is invoked
+INFO 2022-07-26 22:31:04,233 Left join operation output is : 
+              0        1        2    3           4     5     6
+0    1006032852     Sexy      Low  4.6  1006032852  2114  2274
+1    1212192089   Casual      Low  0.0  1212192089   151   275
+2    1190380701  vintage     High  0.0  1190380701     6     7
+3     966005983    Brief  Average  4.6   966005983  1005  1128
+4     876339541     cute      Low  4.5   876339541   996  1175
+..          ...      ...      ...  ...         ...   ...   ...
+545   722565148     Sexy      Low  4.3   722565148     0     0
+546   722565148     Sexy      Low  4.3   722565148   856   882
+547   532874347   Casual  Average  4.7   532874347     0     0
+548   655464934   Casual  Average  4.6   655464934     0     0
+549   919930954   Casual      Low  4.4   919930954     0     0
+
+[550 rows x 7 columns]
+INFO 2022-07-26 22:31:04,233 Left Join operation completed successfully
+INFO 2022-07-26 22:31:04,233 unique dress Id operation function from class invoked
+INFO 2022-07-26 22:31:04,247 The unique dress id from attribute dataset is : 
+              0
+0    1006032852
+1    1212192089
+2    1190380701
+3     966005983
+4     876339541
+..          ...
+470   990559192
+471   713391965
+472   532874347
+473   655464934
+474   919930954
+
+[475 rows x 1 columns]
+INFO 2022-07-26 22:31:04,249 Count of Unique Dresses found is [(475,)]
+INFO 2022-07-26 22:31:04,249 Function completed
+INFO 2022-07-26 22:31:04,249 recommendation zero count operation function from class invoked
+INFO 2022-07-26 22:31:04,254 Count of attribute dataset where recommendation is 0 is [(290,)]
+INFO 2022-07-26 22:31:04,255 Total sell individual dress id function from class invoked
+INFO 2022-07-26 22:31:04,273 Total cost of dresses sold for individual dress id is: 
+              0      1
+0    1006032852  75979
+1    1212192089  52256
+2    1190380701    223
+3     966005983  39691
+4     876339541  44077
+..          ...    ...
+470   990559192   1427
+471   713391965   8915
+472   532874347  12606
+473   655464934   5167
+474   919930954  12312
+
+[475 rows x 2 columns]
+INFO 2022-07-26 22:31:04,274 Third most selling dress function from class invoked
+INFO 2022-07-26 22:31:04,281 The third most selling dress is: [(1006032852, Decimal('75979'))]
+INFO 2022-07-26 22:31:04,281 MongoDB class function invoked
+INFO 2022-07-26 22:31:04,281 Sql_database class invoked
+INFO 2022-07-26 22:31:04,281 The MySQL DB connection parameters initialized
+INFO 2022-07-26 22:31:04,281 json convertion function from class invoked
+INFO 2022-07-26 22:31:04,307 Datasets are converted to json format
+INFO 2022-07-26 22:31:04,307 Drop database collection function from class invoked
+INFO 2022-07-26 22:31:05,449 Database collections dropped successfully
+INFO 2022-07-26 22:31:05,518 Bulk insert function from class invoked
+INFO 2022-07-26 22:31:05,553 Json data and data1 loaded successfully
+INFO 2022-07-26 22:31:07,666 Attribute data inserted into MongoDB is 
+                          _id    Dress_ID  ... PatternType Recommendation
+0    62e01dd1a34185a9492fb0f9  1006032852  ...      animal              1
+1    62e01dd1a34185a9492fb0f9  1212192089  ...      animal              0
+2    62e01dd1a34185a9492fb0f9  1190380701  ...       print              0
+3    62e01dd1a34185a9492fb0f9   966005983  ...       print              1
+4    62e01dd1a34185a9492fb0f9   876339541  ...         dot              0
+..                        ...         ...  ...         ...            ...
+495  62e01dd1a34185a9492fb0f9   713391965  ...       solid              1
+496  62e01dd1a34185a9492fb0f9   722565148  ...        NULL              0
+497  62e01dd1a34185a9492fb0f9   532874347  ...       solid              1
+498  62e01dd1a34185a9492fb0f9   655464934  ...       print              1
+499  62e01dd1a34185a9492fb0f9   919930954  ...       solid              0
+
+[500 rows x 15 columns]
+INFO 2022-07-26 22:31:08,033 sales data inserted into MongoDB is 
+                          _id    Dress_ID  ...  10-10-2013  10-12-2013
+0    62e01dd2a34185a9492fb0fa  1006032852  ...        3985        4048
+1    62e01dd2a34185a9492fb0fa  1212192089  ...        4125        4277
+2    62e01dd2a34185a9492fb0fa  1190380701  ...          11          11
+3    62e01dd2a34185a9492fb0fa   966005983  ...        1959        1963
+4    62e01dd2a34185a9492fb0fa   876339541  ...        2693        2736
+..                        ...         ...  ...         ...         ...
+495  62e01dd2a34185a9492fb0fa   713391965  ...         384         285
+496  62e01dd2a34185a9492fb0fa   722565148  ...         919         931
+497  62e01dd2a34185a9492fb0fa   532874347  ...         535         520
+498  62e01dd2a34185a9492fb0fa   655464934  ...         249         248
+499  62e01dd2a34185a9492fb0fa   919930954  ...         674         680
+
+[500 rows x 25 columns]
+INFO 2022-07-26 22:31:08,033 Bulk Data inserted successfully in MongoDB
+INFO 2022-07-26 22:31:08,105 Main function executed successfully 
+ 
+
